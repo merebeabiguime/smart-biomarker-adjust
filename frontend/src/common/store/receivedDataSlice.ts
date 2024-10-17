@@ -1,20 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CrisisAlertEntity } from "../../utils/consts";
+import { ICrisisAlertEntity } from "../Entities/ICrisisAlertEntity";
 import { TReceivedDataState } from "./types/TReceivedDataState";
+import { TBiomakerNotification } from "../services/types/TBiomarkerNotification";
 
 const initialState: TReceivedDataState = {
-  oxygenPercentage: 0,
-  breathingFrequency: 0,
+  biomarkerNotification: null,
+  crisisAlertEntity: CrisisAlertEntity.MILD,
 };
 
 const receivedDataSlice = createSlice({
-  name: "fundsManagement",
+  name: "receivedData",
   initialState,
   reducers: {
-    setOxygenPercentage: (state, action: PayloadAction<number>) => {
-      state.oxygenPercentage = action.payload;
+    setCrisisAlertEntity: (
+      state,
+      action: PayloadAction<ICrisisAlertEntity>
+    ) => {
+      state.crisisAlertEntity = action.payload;
     },
-    setBreathingFrequency: (state, action: PayloadAction<number>) => {
-      state.breathingFrequency = action.payload;
+    setBiomarkerNotification: (
+      state,
+      action: PayloadAction<TBiomakerNotification>
+    ) => {
+      state.biomarkerNotification = action.payload;
     },
   },
 });

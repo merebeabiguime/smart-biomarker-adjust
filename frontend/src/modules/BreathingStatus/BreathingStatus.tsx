@@ -1,15 +1,18 @@
-import React from "react";
-import GaugeChart from "../../common/components/GaugeChart/GaugeChart";
 import { Grid2 } from "@mui/material";
-import { useAppSelector } from "../../common/store/redux";
+import GaugeChart from "../../common/components/GaugeChart/GaugeChart";
+import useBiomarker from "../../common/hooks/useBiomarker";
+import { BiomarkerTypes } from "../../utils/consts";
 
 export default function BreathingStatus() {
-  const breathingFrequency = useAppSelector(
-    (state) => state.receivedData.breathingFrequency
+  const { onGetBiomarkerMeasurements } = useBiomarker();
+  const measurements = onGetBiomarkerMeasurements(
+    BiomarkerTypes.BEATHING_FREQUENCY
   );
   return (
     <Grid2 mb={2} width={"100%"} height={"100%"}>
-      <GaugeChart value={breathingFrequency} />
+      <GaugeChart
+        value={measurements.length === 0 ? 0 : measurements[0].value}
+      />
     </Grid2>
   );
 }
