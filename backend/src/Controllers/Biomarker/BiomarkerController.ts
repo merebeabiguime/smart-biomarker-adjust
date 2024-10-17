@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import { TReceiveDataRequest } from "./types/Requests/TReceiveDataRequest";
-import { ServerResponse } from "../utils/ServerResponse";
-import { validateRequestBody } from "../utils/shared";
-import { receiveDataRequestSchema } from "../Schemas/receiveDataRequestSchema";
-import { NotificationService } from "../Interfaces/NotificationService";
+import { ServerResponse } from "../../utils/ServerResponse";
+import { validateRequestBody } from "../../utils/shared";
+import { receiveDataRequestSchema } from "../../Schemas/receiveDataRequestSchema";
+import { NotificationService } from "../../Interfaces/NotificationService";
 
 export class BiomarkerController {
   private _notificationService: NotificationService;
