@@ -23,5 +23,9 @@ export default function useBiomarker() {
     return [];
   };
 
-  return { onGetBiomarkerMeasurements };
+  const onGetRecomendedDosage = (): number => {
+    return !biomarkerNotification ? 0 : biomarkerNotification.recommendedDosage;
+  };
+
+  return { onGetBiomarkerMeasurements, onGetRecomendedDosage };
 }
