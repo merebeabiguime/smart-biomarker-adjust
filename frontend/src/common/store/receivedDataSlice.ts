@@ -2,7 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TReceivedDataState } from "./types/TReceivedDataState";
 
 const initialState: TReceivedDataState = {
-  oxygenPercentage: null,
+  oxygenPercentage: 0,
+  breathingFrequency: 0,
 };
 
 const receivedDataSlice = createSlice({
@@ -11,6 +12,9 @@ const receivedDataSlice = createSlice({
   reducers: {
     setOxygenPercentage: (state, action: PayloadAction<number>) => {
       state.oxygenPercentage = action.payload;
+    },
+    setBreathingFrequency: (state, action: PayloadAction<number>) => {
+      state.breathingFrequency = action.payload;
     },
   },
 });
