@@ -1,17 +1,15 @@
 import { NextFunction, Request, Response } from "express";
+import { UserInteractor } from "../../Interactor/UserInteractor";
+import { createUserRequestSchema } from "../../Schemas/createUserRequestSchema";
+import { findUserByEmailAndPasswordRequestSchema } from "../../Schemas/findUserByEmailAndPasswordRequestSchema";
 import { ServerResponse } from "../../utils/ServerResponse";
 import { validateRequestBody, validateRequestParams } from "../../utils/shared";
-import { receiveDataRequestSchema } from "../../Schemas/receiveDataRequestSchema";
-import { NotificationService } from "../../Interfaces/NotificationService";
-import { UserInteractor } from "../../Interactor/UserInteractor";
 import { TCreateUserRequestSchema } from "./types/Requests/TCreateUserRequestSchema";
-import { TCreateUserResponseSchema } from "./types/Responses/TCreateUserResponseSchema";
-import { createUserRequestSchema } from "../../Schemas/createUserRequestSchema";
 import { TFindUserByEmailAndPasswordRequest } from "./types/Requests/TFindUserByEmailAndPasswordRequest";
+import { TCreateUserResponseSchema } from "./types/Responses/TCreateUserResponseSchema";
 import { TFindUserByEmailAndPasswordResponse } from "./types/Responses/TFindUserByEmailAndPasswordResponse";
-import { findUserByEmailAndPasswordRequestSchema } from "../../Schemas/findUserByEmailAndPasswordRequestSchema";
 
-export class BiomarkerController {
+export class UserController {
   private _userInteractor: UserInteractor;
   constructor(userInteractor: UserInteractor) {
     this._userInteractor = userInteractor;
