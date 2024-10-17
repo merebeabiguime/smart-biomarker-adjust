@@ -6,9 +6,13 @@ import {
   StateFromReducersMapObject,
 } from "@reduxjs/toolkit";
 import { receivedDataReducer } from "./receivedDataSlice";
+import { authenticationReducer } from "../../modules/Authentication/slice/authenticationSlice";
+import { customFormReducer } from "../Forms/slice/customFormSlice";
 
 const reducers = {
   receivedData: receivedDataReducer,
+  authentication: authenticationReducer,
+  form: customFormReducer,
 };
 
 export type RootState = StateFromReducersMapObject<typeof reducers>;
