@@ -36,7 +36,9 @@ function App() {
           <Grid2 mb={2} width={"100%"}>
             <Typography textAlign={"center"}>Mon état de santé</Typography>
           </Grid2>
-          <CrisisAlert />
+          <Grid2 mb={2} width={"100%"}>
+            <CrisisAlert />
+          </Grid2>
         </Grid2>
       </Container>
     </>
