@@ -1,24 +1,26 @@
 import {
   Box,
+  CircularProgress,
   Container,
   Grid2,
   Typography,
-  CircularProgress,
 } from "@mui/material";
-import "./App.css";
-import GaugeChart from "./common/components/GaugeChart/GaugeChart";
-import BreathingStatus from "./modules/BreathingStatus/BreathingStatus";
-import OxygenSaturation from "./modules/OxygenSaturation/OxygenSaturation";
-import CrisisAlert from "./modules/CrisisAlert/CrisisAlert";
-import NavBar from "./common/NavBar/NavBar";
-import DoseAdministered from "./modules/DoseAdministered/DoseAdministred";
 import { useEffect } from "react";
+import "./App.css";
+import NavBar from "./common/NavBar/NavBar";
+import useNotification from "./common/Notification/useNotification";
 import { useAppSelector } from "./common/store/redux";
+import BreathingStatus from "./modules/BreathingStatus/BreathingStatus";
+import CrisisAlert from "./modules/CrisisAlert/CrisisAlert";
+import DoseAdministered from "./modules/DoseAdministered/DoseAdministred";
+import OxygenSaturation from "./modules/OxygenSaturation/OxygenSaturation";
 
 function App() {
   const biomarkerNotification = useAppSelector(
     (state) => state.receivedData.biomarkerNotification
   );
+
+  useNotification();
 
   useEffect(() => {}, []);
 
