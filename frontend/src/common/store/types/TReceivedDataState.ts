@@ -1,3 +1,5 @@
+import { ICrisisAlertEntity } from "../../Entities/ICrisisAlertEntity";
+
 export enum AsthmaAttackSeverity {
   MILD = "MILD",
   MODERATE = "MODERATE",
@@ -8,5 +10,5 @@ export enum AsthmaAttackSeverity {
 export type TReceivedDataState = {
   oxygenPercentage: number;
   breathingFrequency: number;
-  healthStatus: AsthmaAttackSeverity;
+  crisisAlertEntity: ICrisisAlertEntity;
 };

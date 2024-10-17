@@ -1,13 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {
-  AsthmaAttackSeverity,
-  TReceivedDataState,
-} from "./types/TReceivedDataState";
+import { CrisisAlertEntity } from "../../utils/consts";
+import { ICrisisAlertEntity } from "../Entities/ICrisisAlertEntity";
+import { TReceivedDataState } from "./types/TReceivedDataState";
 
 const initialState: TReceivedDataState = {
   oxygenPercentage: 0,
   breathingFrequency: 0,
-  healthStatus: AsthmaAttackSeverity.MILD,
+  crisisAlertEntity: CrisisAlertEntity.MILD,
 };
 
 const receivedDataSlice = createSlice({
@@ -20,8 +19,11 @@ const receivedDataSlice = createSlice({
     setBreathingFrequency: (state, action: PayloadAction<number>) => {
       state.breathingFrequency = action.payload;
     },
-    setHealthStatus: (state, action: PayloadAction<AsthmaAttackSeverity>) => {
-      state.healthStatus = action.payload;
+    setCrisisAlertEntity: (
+      state,
+      action: PayloadAction<ICrisisAlertEntity>
+    ) => {
+      state.crisisAlertEntity = action.payload;
     },
   },
 });
