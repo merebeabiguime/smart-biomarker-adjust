@@ -1,5 +1,6 @@
 import { Box, Container, Grid2, Typography } from "@mui/material";
 import "./App.css";
+import GaugeChart from "./common/components/GaugeChart/GaugeChart";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
       <Grid2 container justifyContent={"center"} mt={4}>
         <Grid2 mb={2} width={"100%"}>
           <Typography textAlign={"center"}>Saturation en oxygène</Typography>
+        </Grid2>
+        <Grid2 mb={2} width={"100%"} height={"100%"}>
+          <GaugeChart value={75} />
         </Grid2>
       </Grid2>
       <Grid2 container justifyContent={"center"} mt={4}>
