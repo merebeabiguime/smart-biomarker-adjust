@@ -1,0 +1,18 @@
+{
+  "type": "commonjs",
+  "dependencies": {
+    "@types/sequelize": "^4.28.20",
+    "@types/umzug": "^2.3.7",
+    "dotenv": "^16.4.5",
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3",
+    "umzug": "^3.8.1"
+  },
+  "scripts": {
+    "build": "tsc && node dist/main.js"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}

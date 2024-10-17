@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",   // Set the target JavaScript version
+      "module": "NodeNext", // Use the CommonJS module system
+      "moduleResolution": "NodeNext",
+      "outDir": "dist",    // Output compiled JavaScript to the 'dist' folder
+      "strict": true,     // Enable strict type checking
+      "esModuleInterop": true, // Allow for easier mixing of ES modules and CommonJS
+      "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    },
+    "include": ["src/**/*"] // Specify the directory containing your TypeScript source code
+  }
