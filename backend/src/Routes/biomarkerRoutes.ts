@@ -1,6 +1,6 @@
 import express from "express";
 import { BIOMARKER_ROUTES_NAME } from "../utils/consts";
-import { BiomarkerController } from "../Controllers/BiomarkerController";
+import { BiomarkerController } from "../Controllers/Biomarker/BiomarkerController";
 import bodyParser from "body-parser";
 import { notificationService } from "../utils/instantiation";
 const router = express.Router();

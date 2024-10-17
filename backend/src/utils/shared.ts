@@ -33,3 +33,10 @@ export const validateRequestBody = (request: Request, schema: Joi.Schema) => {
     throw new Error(error.details[0].message);
   }
 };
+
+export const validateRequestParams = (request: Request, schema: Joi.Schema) => {
+  const { error } = schema.validate(request.params);
+  if (error) {
+    throw new Error(error.details[0].message);
+  }
+};
