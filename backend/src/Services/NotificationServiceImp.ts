@@ -57,7 +57,7 @@ export class NotificationServiceImp implements NotificationService {
   async sendIONotification(
     event: NotificationEventType,
     payload: any
-  ): Promise<void> {
+  ): Promise<any> {
     if (!this._io) {
       throw new Error("Socket.IO server not initialized");
     }
