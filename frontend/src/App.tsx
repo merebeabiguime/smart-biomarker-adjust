@@ -2,6 +2,7 @@ import { Box, Container, Grid2, Typography } from "@mui/material";
 import "./App.css";
 import GaugeChart from "./common/components/GaugeChart/GaugeChart";
 import BreathingStatus from "./modules/BreathingStatus/BreathingStatus";
+import OxygenStaturation from "./modules/OxygenSaturation/OxygenSaturation";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <Grid2 container justifyContent={"center"} mt={4}>
         <Grid2>
           <Typography>
-            Dose administrée : <span style={{ fontWeight: "bold" }}>4mg</span>
+            Dose d'administration recommandée :
+            <span style={{ fontWeight: "bold" }}> 4mg</span>
           </Typography>
         </Grid2>
       </Grid2>
@@ -19,12 +21,14 @@ function App() {
             Evolution de la respiration
           </Typography>
         </Grid2>
+        <BreathingStatus />
       </Grid2>
       <Grid2 container justifyContent={"center"} mt={4}>
         <Grid2 mb={2} width={"100%"}>
           <Typography textAlign={"center"}>Saturation en oxygène</Typography>
         </Grid2>
-        <BreathingStatus />
+
+        <OxygenStaturation />
       </Grid2>
       <Grid2 container justifyContent={"center"} mt={4}>
         <Grid2 mb={2} width={"100%"}>
