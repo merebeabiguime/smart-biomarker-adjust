@@ -1,8 +1,9 @@
-import { NotificationService } from "../Interfaces/NotificationService";
 import cors from "cors";
-import { Server as SocketIOServer } from "socket.io";
 import { Server as HttpServer } from "http";
+import { Server as SocketIOServer } from "socket.io";
+import { NotificationService } from "../Interfaces/NotificationService";
 import { safeRemoveUnderscores } from "../utils/shared";
+import { TsendNewMeasureNotification } from "./types/TsendNewMeasureNotification";
 
 export enum NotificationEventType {
   MEASURE_NEW = "measure.new",
@@ -61,5 +62,11 @@ export class NotificationServiceImp implements NotificationService {
       throw new Error("Socket.IO server not initialized");
     }
     this._io.emit(event, safeRemoveUnderscores(payload));
+  }
+
+  async sendNewMeasureNotification(
+    data: TsendNewMeasureNotification
+  ): Promise<void> {
+    await this.sendIONotification(NotificationEventType.MEASURE_NEW, data);
   }
 }
