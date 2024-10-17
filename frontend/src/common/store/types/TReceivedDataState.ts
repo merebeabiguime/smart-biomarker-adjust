@@ -1,3 +1,4 @@
 export type TReceivedDataState = {
-  oxygenPercentage: number | null;
+  oxygenPercentage: number;
+  breathingFrequency: number;
 };
