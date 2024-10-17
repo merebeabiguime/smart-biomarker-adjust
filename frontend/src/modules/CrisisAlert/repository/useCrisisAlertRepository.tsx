@@ -1,26 +1,26 @@
 import { receivedDataActions } from "../../../common/store/receivedDataSlice";
 import { useAppDispatch } from "../../../common/store/redux";
-import { AsthmaAttackSeverity } from "../../../common/store/types/TReceivedDataState";
+import { BiomarkerStatus } from "../../../common/store/types/TReceivedDataState";
 import { CrisisAlertEntity } from "../../../utils/consts";
 
 export default function useCrisisAlertRepository() {
   const dispatch = useAppDispatch();
-  const onSetCrisisAlert = (status: AsthmaAttackSeverity) => {
+  const onSetCrisisAlert = (status: BiomarkerStatus) => {
     switch (status) {
-      case AsthmaAttackSeverity.SEVERE: {
+      case BiomarkerStatus.SEVERE: {
         CrisisAlertEntity;
         dispatch(
           receivedDataActions.setCrisisAlertEntity(CrisisAlertEntity.SEVERE)
         );
         break;
       }
-      case AsthmaAttackSeverity.MODERATE: {
+      case BiomarkerStatus.MODERATE: {
         dispatch(
           receivedDataActions.setCrisisAlertEntity(CrisisAlertEntity.MODERATE)
         );
         break;
       }
-      case AsthmaAttackSeverity.INCOMING_ATTACK: {
+      case BiomarkerStatus.INCOMING_ATTACK: {
         dispatch(
           receivedDataActions.setCrisisAlertEntity(
             CrisisAlertEntity.INCOMING_ATTACK
@@ -28,7 +28,7 @@ export default function useCrisisAlertRepository() {
         );
         break;
       }
-      case AsthmaAttackSeverity.MILD:
+      case BiomarkerStatus.MILD:
       default: {
         dispatch(
           receivedDataActions.setCrisisAlertEntity(CrisisAlertEntity.MILD)

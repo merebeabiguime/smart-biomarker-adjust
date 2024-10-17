@@ -1,10 +1,8 @@
+import { IBiomarkerEntity } from "../common/Entities/IBiomarkerEntity";
 import { ICrisisAlertEntity } from "../common/Entities/ICrisisAlertEntity";
-import { AsthmaAttackSeverity } from "../common/store/types/TReceivedDataState";
+import { BiomarkerStatus } from "../common/store/types/TReceivedDataState";
 
-export const CrisisAlertEntity: Record<
-  AsthmaAttackSeverity,
-  ICrisisAlertEntity
-> = {
+export const CrisisAlertEntity: Record<BiomarkerStatus, ICrisisAlertEntity> = {
   INCOMING_ATTACK: {
     fontColor: "white",
     backgroundColor: "#b22a00",
@@ -28,4 +26,12 @@ export const CrisisAlertEntity: Record<
     message:
       "Crise sévère nécessitant une attention médicale immédiate (urgence)",
   },
+};
+
+export const BiomarkerTypes: { [key: string]: IBiomarkerEntity } = {
+  BEATHING_FREQUENCY: {
+    name: "Fréquence respiratoire",
+    measurementUnit: "1/s",
+  }, // beats per minute
+  OXYGEN_SATURATION: { name: "Saturation en oxygène", measurementUnit: "%" }, // millimeters of mercury
 };

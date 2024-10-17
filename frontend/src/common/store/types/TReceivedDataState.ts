@@ -1,6 +1,9 @@
+import { IBiomarkerEntity } from "../../Entities/IBiomarkerEntity";
+import { IBiomarkerMeasurementEntity } from "../../Entities/IBiomarkerMeasurementEntity";
 import { ICrisisAlertEntity } from "../../Entities/ICrisisAlertEntity";
+import { TBiomakerNotification } from "../../services/types/TBiomarkerNotification";
 
-export enum AsthmaAttackSeverity {
+export enum BiomarkerStatus {
   MILD = "MILD",
   MODERATE = "MODERATE",
   SEVERE = "SEVERE",
@@ -8,7 +11,6 @@ export enum AsthmaAttackSeverity {
 }
 
 export type TReceivedDataState = {
-  oxygenPercentage: number;
-  breathingFrequency: number;
+  biomarkerNotification: TBiomakerNotification | null;
   crisisAlertEntity: ICrisisAlertEntity;
 };
