@@ -14,6 +14,9 @@ export default function NavBar() {
         >
           <MenuIcon />
         </IconButton>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Mérébé Abiguime
+        </Typography>
       </Toolbar>
     </AppBar>
   );

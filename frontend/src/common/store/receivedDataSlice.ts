@@ -1,9 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TReceivedDataState } from "./types/TReceivedDataState";
+import {
+  AsthmaAttackSeverity,
+  TReceivedDataState,
+} from "./types/TReceivedDataState";
 
 const initialState: TReceivedDataState = {
   oxygenPercentage: 0,
   breathingFrequency: 0,
+  healthStatus: AsthmaAttackSeverity.MILD,
 };
 
 const receivedDataSlice = createSlice({
@@ -15,6 +19,9 @@ const receivedDataSlice = createSlice({
     },
     setBreathingFrequency: (state, action: PayloadAction<number>) => {
       state.breathingFrequency = action.payload;
+    },
+    setHealthStatus: (state, action: PayloadAction<AsthmaAttackSeverity>) => {
+      state.healthStatus = action.payload;
     },
   },
 });
