@@ -8,7 +8,6 @@ export default function useCrisisAlertRepository() {
   const onSetCrisisAlert = (status: BiomarkerStatus) => {
     switch (status) {
       case BiomarkerStatus.SEVERE: {
-        CrisisAlertEntity;
         dispatch(
           receivedDataActions.setCrisisAlertEntity(CrisisAlertEntity.SEVERE)
         );

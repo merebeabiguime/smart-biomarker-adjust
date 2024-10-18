@@ -8,13 +8,16 @@ import { BiomarkerStatus } from "../store/types/TReceivedDataState";
 import { findAllNotificationByDateAndUserId } from "../services/notificationService";
 import { TFindAllByDateAndUserIdRequest } from "../services/types/Requests/TFindAllByDateAndUserIdRequest";
 import { addDays, startOfDay, endOfDay } from "date-fns";
+import useCrisisAlertRepository from "../../modules/CrisisAlert/repository/useCrisisAlertRepository";
 
 export default function useNotificationRepository() {
   const dispatch = useAppDispatch();
+  const { onSetCrisisAlert } = useCrisisAlertRepository();
   const onReceiveNotification = async (
     request: TsendNewMeasureNotification
   ) => {
     dispatch(receivedDataActions.setBiomarkerNotification(request));
+    onSetCrisisAlert(request.status);
   };
   const onInitializeNotification = async () => {
     const biomarkerNotification: TBiomakerNotification = {
