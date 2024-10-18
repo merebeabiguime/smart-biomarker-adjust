@@ -6,6 +6,7 @@ import SQBiomarkerMeasurement from "../models/SQBiomarkerMeasurement";
 export const sqBiomarkerMeasurementToBiomarkerMeasurement = async (
   sqBiomarkerMeasurement: SQBiomarkerMeasurement
 ): Promise<BiomarkerMeasurement> => {
+  console.log("sqBiomarkerMeasurement", sqBiomarkerMeasurement);
   const sqBiomarker: SQBiomarker = await sqBiomarkerMeasurement.getBiomarker();
   const biomarker: Biomarker = new Biomarker(
     sqBiomarker.id,

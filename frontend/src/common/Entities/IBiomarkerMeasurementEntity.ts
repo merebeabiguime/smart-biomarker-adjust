@@ -4,4 +4,5 @@ export interface IBiomarkerMeasurementEntity {
   hour: Date;
   value: number;
   biomarker: IBiomarkerEntity;
+  userId: number;
 }

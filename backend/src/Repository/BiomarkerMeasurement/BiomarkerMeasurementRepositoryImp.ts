@@ -14,11 +14,9 @@ export class BiomarkerMeasurementRepositoryImp
     const biomarkerMeasurements = await SQBiomarkerMeasurement.findAll({
       where: {
         userId: attributes.userId,
-        hour: {
-          [Op.between]: [attributes.startDate, attributes.endDate], // Date range filter
-        },
       },
     });
+    console.log("biomarkerMeasurements", biomarkerMeasurements);
 
     if (!biomarkerMeasurements) {
       return null;
@@ -29,9 +27,7 @@ export class BiomarkerMeasurementRepositoryImp
       )
     );
 
-    return promises.filter(
-      (b): b is BiomarkerMeasurement => b !== null || b !== undefined
-    );
+    return promises;
   }
 
   async create(
