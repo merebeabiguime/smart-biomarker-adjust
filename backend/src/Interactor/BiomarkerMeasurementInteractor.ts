@@ -1,8 +1,6 @@
 import { BiomarkerMeasurementRepository } from "../Interfaces/BiomarkerMeasurementRepository";
-import { UserRepository } from "../Interfaces/UserRepository";
 import { BiomarkerMeasurement } from "../Models/BiomarkerMeasurement";
-import { User } from "../Models/User";
-import { biomarkerMeasurement, user } from "../utils/namespaces";
+import { biomarkerMeasurement } from "../utils/namespaces";
 
 export class BiomarkerMeasurementInteractor {
   private _biomarkerMeasurementRepository: BiomarkerMeasurementRepository;

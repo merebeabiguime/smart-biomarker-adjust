@@ -8,6 +8,7 @@ export const sqBiomarkerMeasurementToBiomarkerMeasurement = async (
 ): Promise<BiomarkerMeasurement> => {
   const sqBiomarker: SQBiomarker = await sqBiomarkerMeasurement.getBiomarker();
   const biomarker: Biomarker = new Biomarker(
+    sqBiomarker.id,
     sqBiomarker.name,
     sqBiomarker.measurementUnit
   );
