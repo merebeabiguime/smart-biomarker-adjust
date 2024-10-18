@@ -2,6 +2,7 @@ import { DataTypes, Model, Sequelize } from "sequelize";
 
 export class SQUser extends Model {
   public id!: number;
+  public email!: string;
   public firstName!: string;
   public lastName!: string;
   public password!: string;
@@ -19,6 +20,10 @@ export class SQUser extends Model {
           primaryKey: true,
         },
         firstName: {
+          type: DataTypes.STRING,
+          allowNull: false,
+        },
+        email: {
           type: DataTypes.STRING,
           allowNull: false,
         },
@@ -43,7 +48,7 @@ export class SQUser extends Model {
 
   // Static method to define associations
   static associate(models: any) {
-    SQUser.hasMany(models.SQUser, {
+    SQUser.hasMany(models.SQBiomarkerMeasurement, {
       foreignKey: "userId",
       as: "biomarkerMeasurements",
     });

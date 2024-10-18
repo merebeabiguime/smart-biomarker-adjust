@@ -41,12 +41,16 @@ export class UserController {
     next: NextFunction
   ) {
     try {
+      console.log("cacaboudain");
       validateRequestParams(request, findUserByEmailAndPasswordRequestSchema);
-      const reqBody: TFindUserByEmailAndPasswordRequest = request.body;
+      const reqParams: TFindUserByEmailAndPasswordRequest = {
+        email: request.params.email,
+        password: request.params.password,
+      };
 
       const foundUser = await this._userInteractor.findByEmailAndPassword({
-        email: reqBody.email,
-        password: reqBody.password,
+        email: reqParams.email,
+        password: reqParams.password,
       });
 
       const data: TFindUserByEmailAndPasswordResponse = {

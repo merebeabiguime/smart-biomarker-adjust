@@ -2,6 +2,7 @@ import { Button, Grid, Grid2, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { SubmitHandler, useForm, FormProvider } from "react-hook-form";
 import CustomTextField from "../../../common/components/Fields/CustomTextField";
+import useAuthenticationRepository from "../repository/useAuthenticationRepository";
 
 type LoginFormInputs = {
   email: string;
@@ -10,9 +11,10 @@ type LoginFormInputs = {
 
 export default function LoginPage() {
   const methods = useForm<LoginFormInputs>();
+  const { onLogin } = useAuthenticationRepository();
 
-  const submitHandler: SubmitHandler<LoginFormInputs> = (data) => {
-    console.log(data);
+  const submitHandler: SubmitHandler<LoginFormInputs> = async (data) => {
+    await onLogin({ email: data.email, password: data.password });
   };
 
   return (

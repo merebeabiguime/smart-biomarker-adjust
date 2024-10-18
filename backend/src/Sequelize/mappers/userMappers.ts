@@ -6,6 +6,7 @@ export const sqUserToUser = (sqUser: SQUser): User => {
     sqUser.id,
     sqUser.firstName,
     sqUser.lastName,
-    sqUser.password
+    sqUser.password,
+    sqUser.email
   );
 };

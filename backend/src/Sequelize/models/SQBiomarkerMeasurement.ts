@@ -4,7 +4,7 @@ import {
   Model,
   Sequelize,
 } from "sequelize";
-import SQBiomarker from "./SQBiomarke";
+import SQBiomarker from "./SQBiomarker";
 
 export class SQBiomarkerMeasurement extends Model {
   public id!: number;
@@ -68,11 +68,11 @@ export class SQBiomarkerMeasurement extends Model {
   static associate(models: any) {
     SQBiomarkerMeasurement.belongsTo(models.SQBiomarker, {
       foreignKey: "biomarkerId",
-      as: "biomarkerMeasurement",
+      as: "biomarker",
     });
     SQBiomarkerMeasurement.belongsTo(models.SQUser, {
       foreignKey: "userId",
-      as: "biomarkerMeasurementt",
+      as: "user",
     });
   }
 }

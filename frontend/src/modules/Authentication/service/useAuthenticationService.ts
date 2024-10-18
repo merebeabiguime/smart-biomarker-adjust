@@ -10,7 +10,6 @@ export const login = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     const response = await apiRequest<TFindUserByEmailAndPasswordResponse>(
-      dispatch,
       `/api/user/login/${request.email}/${request.password}`,
       MethodEnum.GET,
       null

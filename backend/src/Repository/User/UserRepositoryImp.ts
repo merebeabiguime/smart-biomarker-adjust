@@ -15,6 +15,7 @@ export class UserRepositoryImp implements UserRepository {
     if (!sqUser) {
       return null;
     }
+    console.log("sqUser", sqUser);
 
     return sqUserToUser(sqUser);
   }

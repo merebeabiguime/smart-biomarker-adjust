@@ -18,12 +18,9 @@ const axiosInstance = axios.create({
 });
 
 export const apiRequest = async <T>(
-  dispatch: any,
   url: string,
   methodEnum: MethodEnum,
-  body: any = null,
-  multipart: boolean = false,
-  menuAccessHeader?: string
+  body: any = null
 ): Promise<TApiResponse<T>> => {
   try {
     let headers: any = {};
