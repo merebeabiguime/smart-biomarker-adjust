@@ -5,6 +5,9 @@ import { TsendNewMeasureNotification } from "./types/TsendNewMeasureNotification
 import { IBiomarkerEntity } from "../Entities/IBiomarkerEntity";
 import { TBiomakerNotification } from "../services/types/TBiomarkerNotification";
 import { BiomarkerStatus } from "../store/types/TReceivedDataState";
+import { findAllNotificationByDateAndUserId } from "../services/notificationService";
+import { TFindAllByDateAndUserIdRequest } from "../services/types/Requests/TFindAllByDateAndUserIdRequest";
+import { addDays, startOfDay, endOfDay } from "date-fns";
 
 export default function useNotificationRepository() {
   const dispatch = useAppDispatch();
@@ -24,5 +27,33 @@ export default function useNotificationRepository() {
       receivedDataActions.setBiomarkerNotification(biomarkerNotification)
     );
   };
-  return { onReceiveNotification, onInitializeNotification };
+  const onFindYesterdayNotification = async (userId: number) => {
+    const today = new Date();
+    const yesterday = addDays(today, -1);
+
+    const resultAction = await dispatch(
+      findAllNotificationByDateAndUserId({
+        startDate: yesterday,
+        endDate: today,
+        userId: userId,
+      })
+    );
+
+    if (findAllNotificationByDateAndUserId.rejected.match(resultAction)) {
+      throw new Error("Une erreur est survenue. Veuillez réessayer plus tard.");
+    }
+
+    dispatch(
+      receivedDataActions.setPreviousNotification(
+        resultAction.payload.notification
+      )
+    );
+
+    return resultAction.payload;
+  };
+  return {
+    onReceiveNotification,
+    onInitializeNotification,
+    onFindYesterdayNotification,
+  };
 }

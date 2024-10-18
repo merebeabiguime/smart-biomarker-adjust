@@ -7,6 +7,7 @@ import { TBiomakerNotification } from "../services/types/TBiomarkerNotification"
 const initialState: TReceivedDataState = {
   biomarkerNotification: null,
   crisisAlertEntity: CrisisAlertEntity.MILD,
+  previousNotification: null,
 };
 
 const receivedDataSlice = createSlice({
@@ -24,6 +25,12 @@ const receivedDataSlice = createSlice({
       action: PayloadAction<TBiomakerNotification>
     ) => {
       state.biomarkerNotification = action.payload;
+    },
+    setPreviousNotification: (
+      state,
+      action: PayloadAction<TBiomakerNotification>
+    ) => {
+      state.previousNotification = action.payload;
     },
   },
 });

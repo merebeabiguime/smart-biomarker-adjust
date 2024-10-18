@@ -13,4 +13,5 @@ export enum BiomarkerStatus {
 export type TReceivedDataState = {
   biomarkerNotification: TBiomakerNotification | null;
   crisisAlertEntity: ICrisisAlertEntity;
+  previousNotification: TBiomakerNotification | null;
 };
