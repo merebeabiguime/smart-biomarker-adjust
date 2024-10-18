@@ -29,9 +29,13 @@ export const CrisisAlertEntity: Record<BiomarkerStatus, ICrisisAlertEntity> = {
 };
 
 export const BiomarkerTypes: { [key: string]: IBiomarkerEntity } = {
+  SPIROMETRE: {
+    name: "Débit expiratoire de pointe",
+    measurementUnit: "%",
+  },
+  OXYGEN_SATURATION: { name: "Saturation en oxygène", measurementUnit: "%" },
   BEATHING_FREQUENCY: {
-    name: "Fréquence respiratoire",
-    measurementUnit: "1/s",
-  }, // beats per minute
-  OXYGEN_SATURATION: { name: "Saturation en oxygène", measurementUnit: "%" }, // millimeters of mercury
+    name: "Fréquence de toux",
+    measurementUnit: "répétition/min",
+  },
 };
