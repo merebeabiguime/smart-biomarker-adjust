@@ -14,7 +14,7 @@ export class BiomarkerMeasurementRepositoryImp
     const biomarkerMeasurements = await SQBiomarkerMeasurement.findAll({
       where: {
         userId: attributes.userId,
-        date: {
+        hour: {
           [Op.between]: [attributes.startDate, attributes.endDate], // Date range filter
         },
       },

@@ -78,7 +78,7 @@ export class BiomarkerController {
         },
       };
       //Return response 200
-      ServerResponse.success(response, null);
+      ServerResponse.success(response, data);
     } catch (error) {
       next(error);
     }
