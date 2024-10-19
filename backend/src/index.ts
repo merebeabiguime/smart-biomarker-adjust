@@ -1,11 +1,11 @@
 import cors from "cors";
 import express, { Express, NextFunction, Request, Response } from "express";
+import { errorHandler } from "./Middlewares/ErrorHandler";
 import biomarkerRouter from "./Routes/biomarkerRoutes";
 import userRouter from "./Routes/userRoutes";
 import sequelize from "./Sequelize/models/index";
-import { API_ROUTES_NAME, USER_ROUTES_NAME } from "./utils/consts";
+import { API_ROUTES_NAME } from "./utils/consts";
 import { corsOptions, notificationService } from "./utils/instantiation";
-import { errorHandler } from "./Middlewares/ErrorHandler";
 
 const app: Express = express();
 const port = 3000;

@@ -7,6 +7,7 @@ import DoseAdministred from "../../modules/DoseAdministered/DoseAdministred";
 import OxygenSaturation from "../../modules/OxygenSaturation/OxygenSaturation";
 import NavBar from "../NavBar/NavBar";
 import { useAppSelector } from "../store/redux";
+import Spirometre from "../../modules/Spirometre/Spirometre";
 
 export default function MainPage() {
   const biomarkerNotification = useAppSelector(
@@ -29,9 +30,17 @@ export default function MainPage() {
       <Container>
         <Grid2 container justifyContent={"center"} mt={4}>
           <Grid2 mb={2} width={"100%"}>
-            <Typography textAlign={"center"}>Fréquence respiratoire</Typography>
+            <Typography textAlign={"center"}>Fréquence de toux</Typography>
           </Grid2>
           <BreathingStatus />
+        </Grid2>
+        <Grid2 container justifyContent={"center"} mt={4}>
+          <Grid2 mb={2} width={"100%"}>
+            <Typography textAlign={"center"}>
+              Débit expiratoire de pointe
+            </Typography>
+          </Grid2>
+          <Spirometre />
         </Grid2>
         <Grid2 container justifyContent={"center"} mt={4}>
           <Grid2 mb={2} width={"100%"}>
