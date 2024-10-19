@@ -1,10 +1,16 @@
 export class Biomarker {
+  private _id: number;
   private _name: string;
   private _measurementUnit: string;
 
-  constructor(name: string, measurementUnit: string) {
+  constructor(id: number, name: string, measurementUnit: string) {
+    this._id = id;
     this._measurementUnit = measurementUnit;
     this._name = name;
+  }
+
+  get id(): number {
+    return this._id;
   }
 
   get name(): string {
@@ -18,5 +24,8 @@ export class Biomarker {
   }
   set measurementUnit(measurementUnit: string) {
     this.measurementUnit = measurementUnit;
+  }
+  set id(id: number) {
+    this._id = id;
   }
 }

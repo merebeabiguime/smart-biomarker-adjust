@@ -2,13 +2,13 @@ import { IBiomarkerEntity } from "../common/Entities/IBiomarkerEntity";
 import { IBiomarkerMeasurementEntity } from "../common/Entities/IBiomarkerMeasurementEntity";
 
 export const extractBiomarkerMeasurements = (
-  biomarkerName: IBiomarkerEntity,
+  biomarkerId: number,
   measurements: IBiomarkerMeasurementEntity[]
 ) => {
   let extractedMeasurements: IBiomarkerMeasurementEntity[] = [];
 
   measurements.map((m) => {
-    if (m.biomarker.name === biomarkerName.name) {
+    if (m.biomarker.id === biomarkerId) {
       extractedMeasurements.push(m);
     }
   });

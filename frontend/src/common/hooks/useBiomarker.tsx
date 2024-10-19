@@ -10,12 +10,12 @@ export default function useBiomarker() {
   );
 
   const onGetBiomarkerMeasurements = (
-    biomarker: IBiomarkerEntity
+    biomarkerId: number
   ): IBiomarkerMeasurementEntity[] => {
     if (biomarkerNotification) {
       const sortedBiomarkerMeasurements: IBiomarkerMeasurementEntity[] =
         extractBiomarkerMeasurements(
-          biomarker,
+          biomarkerId,
           biomarkerNotification.measurements
         );
       return sortedBiomarkerMeasurements;

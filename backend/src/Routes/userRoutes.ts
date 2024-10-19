@@ -1,11 +1,9 @@
-import express from "express";
-import { BIOMARKER_ROUTES_NAME, USER_ROUTES_NAME } from "../utils/consts";
-import { BiomarkerController } from "../Controllers/Biomarker/BiomarkerController";
 import bodyParser from "body-parser";
-import { notificationService } from "../utils/instantiation";
+import express from "express";
 import { UserController } from "../Controllers/User/UserController";
 import { UserInteractor } from "../Interactor/UserInteractor";
 import { UserRepositoryImp } from "../Repository/User/UserRepositoryImp";
+import { USER_ROUTES_NAME } from "../utils/consts";
 const router = express.Router();
 
 router.use(bodyParser.json());
@@ -17,7 +15,7 @@ router.post(
   `${USER_ROUTES_NAME}/create`,
   userController.create.bind(userController)
 );
-router.post(
+router.get(
   `${USER_ROUTES_NAME}/login/:email/:password`,
   userController.findByEmailAndPassword.bind(userController)
 );

@@ -2,5 +2,5 @@ import GaugeBiomarker from "../../common/components/GaugeBiomarker/GaugeBiomarke
 import { BiomarkerTypes } from "../../utils/consts";
 
 export default function OxygenStaturation() {
-  return <GaugeBiomarker biomarker={BiomarkerTypes.OXYGEN_SATURATION} />;
+  return <GaugeBiomarker biomarkerId={2} />;
 }
